@@ -101,7 +101,6 @@ def plot_tsne(z, labels, max_points=500, random_state=42):
 
     return fig
 
-#Revisar para eliminar
 def plot_tsne_wandb(z, labels, max_points=500, random_state=42):
     if z.size(0) < 2:
         return None
@@ -147,7 +146,6 @@ def plot_tsne_wandb(z, labels, max_points=500, random_state=42):
 
     return table
 
-#Revisar para eliminar
 def plot_error_histograms(good_errors, defect_errors_by_type, bins=30):
     figs = []
 
@@ -180,9 +178,6 @@ def plot_error_histograms_wandb(histogram_groups, bins=30):
     for class_name, errors_dict in histogram_groups.items():
 
         for defect_type, errors in errors_dict["defect_errors"].items():
-            #data = [[errors]]
-            #table = wandb.Table(data=data, columns=["Defect error"])
-            #figs.append((class_name, defect_type, table))
 
             fig, ax = plt.subplots(figsize=(6, 4))
             ax.hist(errors_dict["good_errors"], bins=bins, alpha=0.6, label="good")
@@ -198,7 +193,6 @@ def plot_error_histograms_wandb(histogram_groups, bins=30):
 
     return figs
 
-#Revisar para eliminar
 def plot_compare_error_histograms_wandb(histogram_groups, bins=30):
     figs = []
 
